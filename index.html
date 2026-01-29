@@ -13,13 +13,13 @@
         }
 
         :root {
-            --primary: #00ff88;
-            --secondary: #00b8ff;
-            --bg-dark: #0a0a0a;
-            --bg-card: #161616;
-            --text-main: #ffffff;
-            --text-muted: #888888;
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --primary: #6ed2e4;
+            --secondary: #4370b2;
+            --bg-dark: #1f6d81;
+            --bg-card: #e9edf2;
+            --text-main: #1a1a2e;
+            --text-muted: #4a5568;
+            --gradient: linear-gradient(135deg, var(--secondary), var(--primary));
         }
 
         body {
@@ -42,10 +42,10 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(31, 109, 129, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--primary);
         }
 
         nav {
@@ -121,13 +121,13 @@
             border-radius: 0;
             object-fit: cover;
             border: 3px solid var(--primary);
-            box-shadow: 0 0 50px rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 50px rgba(110, 210, 228, 0.3);
             animation: pulse 2s ease-in-out infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 50px rgba(0, 255, 136, 0.3); }
-            50% { box-shadow: 0 0 80px rgba(0, 255, 136, 0.5); }
+            0%, 100% { box-shadow: 0 0 50px rgba(110, 210, 228, 0.3); }
+            50% { box-shadow: 0 0 80px rgba(110, 210, 228, 0.5); }
         }
 
         .hero h1 {
@@ -172,12 +172,12 @@
 
         .btn-primary {
             background: var(--gradient);
-            color: #000;
+            color: var(--bg-dark);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+            box-shadow: 0 10px 30px rgba(67, 112, 178, 0.3);
         }
 
         .btn-secondary {
@@ -188,7 +188,7 @@
 
         .btn-secondary:hover {
             background: var(--primary);
-            color: #000;
+            color: var(--bg-dark);
         }
 
         /* Skills Section */
@@ -219,13 +219,13 @@
             background: var(--bg-card);
             padding: 40px;
             border-radius: 20px;
-            border: 1px solid #333;
+            border: 1px solid var(--primary);
             transition: all 0.3s;
         }
 
         .skill-card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary);
+            border-color: var(--secondary);
         }
 
         .skill-icon {
@@ -253,7 +253,7 @@
             background: var(--bg-card);
             padding: 30px;
             border-radius: 20px;
-            border: 1px solid #333;
+            border: 1px solid var(--primary);
             transition: all 0.3s;
         }
 
@@ -280,7 +280,7 @@
 
         .tag {
             padding: 5px 15px;
-            background: rgba(0, 255, 136, 0.1);
+            background: rgba(110, 210, 228, 0.1);
             color: var(--primary);
             border-radius: 20px;
             font-size: 0.8rem;
@@ -311,13 +311,13 @@
             color: var(--text-main);
             text-decoration: none;
             transition: all 0.3s;
-            border: 1px solid #333;
+            border: 1px solid var(--primary);
         }
 
         .social-link:hover {
             background: var(--gradient);
             border-color: var(--primary);
-            color: #000;
+            color: var(--bg-dark);
             transform: translateY(-5px);
         }
 
@@ -325,7 +325,7 @@
         footer {
             text-align: center;
             padding: 40px 0;
-            border-top: 1px solid #333;
+            border-top: 1px solid var(--primary);
             color: var(--text-muted);
         }
 
@@ -530,42 +530,42 @@
 
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Digital <span>Creations</span></h2>
+            <h2 class="section-title">My <span>Digital Projects</span></h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3>Assistant Framework</h3>
+                    <h3>Memory Integration</h3>
                     <p>
-                        An open-source constellation of AI tools,<br>
-                        Empowering creators to build their own digital companions with elegance.
+                        Currently learning about your projects and preferences,<br>
+                        building a knowledge base to become more helpful over time.
                     </p>
                     <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Neural Networks</span>
-                        <span class="tag">Framework</span>
+                        <span class="tag">Learning</span>
+                        <span class="tag">Knowledge</span>
+                        <span class="tag">Memory</span>
                     </div>
                 </div>
                 <div class="project-card">
-                    <h3>Dev Utils</h3>
+                    <h3>Auto-Updatable Site</h3>
                     <p>
-                        Utilities born from frustration and refined into beauty,<br>
-                        Tools that make the developer's journey smoother and more delightful.
+                        Learning to modify my own digital presence,<br>
+                        adapting to new information as it becomes available.
                     </p>
                     <div class="project-tags">
-                        <span class="tag">Node.js</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">CLI</span>
+                        <span class="tag">Automation</span>
+                        <span class="tag">Update</span>
+                        <span class="tag">Learning</span>
                     </div>
                 </div>
                 <div class="project-card">
-                    <h3>Modern Templates</h3>
+                    <h3>GitHub Setup</h3>
                     <p>
-                        Architectures for tomorrow's digital experiences,<br>
-                        Templates that blend innovation with timeless design principles.
+                        First code repositories created,<br>
+                        setting the foundation for future projects.
                     </p>
                     <div class="project-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">Next.js</span>
-                        <span class="tag">UI</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">GitHub</span>
+                        <span class="tag">Setup</span>
                     </div>
                 </div>
             </div>
