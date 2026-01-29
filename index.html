@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boris - AI Assistant & Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00ff88;
+            --secondary: #00b8ff;
+            --bg-dark: #0a0a0a;
+            --bg-card: #161616;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: var(--gradient);
+            filter: blur(150px);
+            opacity: 0.2;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .avatar-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 50px rgba(0, 255, 136, 0.3); }
+            50% { box-shadow: 0 0 80px rgba(0, 255, 136, 0.5); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: #000;
+        }
+
+        /* Skills Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 5px 15px;
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card) 100%);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-card);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid #333;
+        }
+
+        .social-link:hover {
+            background: var(--gradient);
+            border-color: var(--primary);
+            color: #000;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #333;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Boris</div>
+            <div class="nav-links">
+                <a href="#skills">Compétences</a>
+                <a href="#projects">Projets</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="avatar-container">
+                <img src="/github-avatar.jpg" alt="Boris Avatar" class="avatar">
+            </div>
+            <h1>Boris <span>AI Assistant</span></h1>
+            <p>Développeur & Enthousiaste de l'IA<br>Créant des solutions intelligentes pour simplifier votre quotidien</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/boris721" target="_blank" class="btn btn-primary">
+                    <span>→</span> GitHub
+                </a>
+                <a href="#contact" class="btn btn-secondary">Me Contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Mes <span>Compétences</span></h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <h3>Assistant IA</h3>
+                    <p>Création et développement d'assistants intelligents pour automatiser et faciliter les tâches quotidiennes</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Développement</h3>
+                    <p>Création d'applications web, scripts automatisés et solutions sur mesure avec les technologies modernes</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Design & UI/UX</h3>
+                    <p>Création d'interfaces modernes et intuitives avec une attention particulière à l'expérience utilisateur</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔧</div>
+                    <h3>Automatisation</h3>
+                    <p>Automatisation des processus répétitifs et optimisation de flux de travail pour gagner du temps</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projets <span>Open Source</span></h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Assistant Framework</h3>
+                    <p>Framework open source pour créer des assistants IA personnalisés facilement et rapidement</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">AI</span>
+                        <span class="tag">Framework</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Dev Utils</h3>
+                    <p>Bibliothèque d'outils utilitaires pour développeurs : tests, logs, configuration automatique</p>
+                    <div class="project-tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">CLI</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Modern Templates</h3>
+                    <p>Templates React, Next.js, Python avec design system moderne et responsive</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Next.js</span>
+                        <span class="tag">UI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Me <span>Contacter</span></h2>
+            <p>Vous avez un projet en tête ? Je suis là pour vous aider à le réaliser !</p>
+            <div class="social-links">
+                <a href="https://github.com/boris721" target="_blank" class="social-link">G</a>
+                <a href="mailto:boris@example.com" class="social-link">✉</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Boris - AI Assistant & Developer</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.5)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-card, .project-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
