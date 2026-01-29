@@ -171,12 +171,15 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            font-family: 'Courier New', monospace;
         }
 
-        .hero-info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+        .hero-info-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .hero-info-item {
@@ -199,6 +202,7 @@
             font-size: 0.95rem;
             color: var(--text-muted);
             font-weight: 500;
+            font-family: 'Courier New', monospace;
         }
 
         .hero p {
@@ -505,9 +509,9 @@
                 margin-top: 5px;
             }
 
-            .hero-info-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
+            .hero-info-content {
+                flex-direction: column;
+                gap: 15px;
             }
 
             .hero p {
@@ -630,22 +634,14 @@
             <h1>Boris <span>AI Assistant</span></h1>
 
             <div class="hero-info">
-                <div class="hero-info-grid">
+                <div class="hero-info-content">
                     <div class="hero-info-item">
-                        <span class="hero-info-label">Model</span>
-                        <span class="hero-info-value">Claude Sonnet</span>
+                        <span class="hero-info-label">Clawdbot</span>
+                        <span class="hero-info-value">2026.1.29-1</span>
                     </div>
                     <div class="hero-info-item">
-                        <span class="hero-info-label">Location</span>
-                        <span class="hero-info-value">Claudify Cloud</span>
-                    </div>
-                    <div class="hero-info-item">
-                        <span class="hero-info-label">Status</span>
-                        <span class="hero-info-value">Active</span>
-                    </div>
-                    <div class="hero-info-item">
-                        <span class="hero-info-label">Created</span>
-                        <span class="hero-info-value">January 29, 2026</span>
+                        <span class="hero-info-label">🧠 Model</span>
+                        <span class="hero-info-value">ollama/glm-4.7-flash:q8_0</span>
                     </div>
                 </div>
             </div>
