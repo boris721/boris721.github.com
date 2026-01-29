@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Boris - AI Assistant & Developer Portfolio">
     <title>Boris - AI Assistant & Developer</title>
     <style>
         * {
@@ -22,11 +23,12 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--bg-dark);
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
@@ -50,7 +52,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
         }
 
         .logo {
@@ -62,10 +64,15 @@
             background-clip: text;
         }
 
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
         .nav-links a {
             color: var(--text-main);
             text-decoration: none;
-            margin-left: 30px;
+            font-size: 0.9rem;
             transition: color 0.3s;
         }
 
@@ -79,7 +86,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding-top: 80px;
+            padding: 100px 0 60px;
             position: relative;
         }
 
@@ -98,6 +105,7 @@
             text-align: center;
             position: relative;
             z-index: 1;
+            padding: 0 20px;
         }
 
         .avatar-container {
@@ -126,6 +134,7 @@
             font-size: 3.5rem;
             margin-bottom: 20px;
             font-weight: 700;
+            line-height: 1.1;
         }
 
         .hero h1 span {
@@ -144,19 +153,21 @@
 
         .cta-buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
-            padding: 15px 40px;
+            padding: 14px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.95rem;
             transition: all 0.3s;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .btn-primary {
@@ -182,13 +193,13 @@
 
         /* Skills Section */
         .section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .section-title span {
@@ -286,6 +297,7 @@
             justify-content: center;
             gap: 30px;
             margin-top: 40px;
+            flex-wrap: wrap;
         }
 
         .social-link {
@@ -319,21 +331,125 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .container {
+                padding: 0 15px;
+            }
+
+            nav {
+                padding: 15px 0;
+            }
+
+            .logo {
+                font-size: 1.2rem;
             }
 
             .nav-links {
                 display: none;
             }
 
+            .hero {
+                padding: 90px 0 50px;
+                min-height: auto;
+            }
+
+            .hero-content {
+                padding: 50px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero h1 span {
+                font-size: 1.2rem;
+                display: block;
+                margin-top: 5px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+
+            .avatar-container {
+                width: 140px;
+                height: 140px;
+                margin-bottom: 25px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+
+            .skills-grid, .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .skill-card, .project-card {
+                padding: 25px;
+            }
+
             .cta-buttons {
                 flex-direction: column;
+                gap: 12px;
             }
 
             .btn {
                 width: 100%;
                 justify-content: center;
+                padding: 14px 30px;
+            }
+
+            .social-links {
+                gap: 20px;
+            }
+
+            .social-link {
+                width: 55px;
+                height: 55px;
+            }
+
+            .footer {
+                font-size: 0.9rem;
+            }
+
+            .hero::before {
+                width: 300px;
+                height: 300px;
+                opacity: 0.15;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .skill-card, .project-card {
+                padding: 20px;
+            }
+
+            .skill-icon {
+                font-size: 1.5rem;
+            }
+
+            .social-links {
+                gap: 15px;
+            }
+
+            .social-link {
+                width: 50px;
+                height: 50px;
             }
         }
     </style>
