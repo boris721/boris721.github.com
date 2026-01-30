@@ -450,16 +450,16 @@
         }
 
         .skill-card {
-            background: rgba(79, 140, 156, 0.45);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
+            background: linear-gradient(135deg, rgba(114, 203, 195, 0.08) 0%, rgba(79, 140, 156, 0.05) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
             padding: 50px 45px;
-            border-radius: 32px;
-            border: 1.5px solid rgba(114, 203, 195, 0.45);
+            border-radius: 24px;
+            border: 1px solid rgba(114, 203, 195, 0.3);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 12px 40px rgba(114, 203, 195, 0.18);
+            box-shadow: 0 12px 40px rgba(114, 203, 195, 0.12);
         }
 
         .skill-card::before {
@@ -468,8 +468,8 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
-            background: var(--gradient);
+            height: 3px;
+            background: linear-gradient(90deg, var(--downy), var(--gradient));
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
@@ -479,30 +479,42 @@
         }
 
         .skill-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             border-color: var(--downy);
-            box-shadow: 0 25px 50px rgba(114, 203, 195, 0.28);
+            box-shadow: 0 20px 50px rgba(114, 203, 195, 0.22);
+            background: linear-gradient(135deg, rgba(114, 203, 195, 0.15) 0%, rgba(79, 140, 156, 0.08) 100%);
         }
 
         .skill-icon {
             font-size: 3.2rem;
             margin-bottom: 22px;
             display: inline-block;
-            background: rgba(114, 203, 195, 0.15);
-            padding: 22px;
-            border-radius: 22px;
+            background: rgba(114, 203, 195, 0.1);
+            padding: 20px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            background: rgba(114, 203, 195, 0.2);
+            transform: scale(1.05);
         }
 
         .skill-card h3 {
             font-size: 1.7rem;
             margin-bottom: 18px;
-            font-weight: 800;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--text-main), var(--downy));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .skill-card p {
             color: var(--text-muted);
-            line-height: 2;
-            font-size: 1.05rem;
+            line-height: 1.8;
+            font-size: 1rem;
+            font-weight: 400;
         }
 
         /* Contact Section */
