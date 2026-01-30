@@ -138,50 +138,45 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* Mobile Menu */
-        .mobile-menu {
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
             display: none;
             position: fixed;
             top: 56px;
             left: 0;
             right: 0;
-            background: rgba(22, 39, 69, 0.95);
+            bottom: 0;
+            background: rgba(22, 39, 69, 0.98);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            border-bottom: 2px solid var(--downy);
-            padding: 40px;
+            z-index: 998;
             flex-direction: column;
-            gap: 0;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
-            z-index: 999;
+            padding: 0 40px;
+            overflow-y: auto;
         }
 
-        .mobile-menu.active {
+        .mobile-menu-overlay.active {
             display: flex;
         }
 
-        .mobile-menu a {
+        .mobile-menu-overlay a {
             color: var(--text-main);
             text-decoration: none;
-            font-size: 1.35rem;
+            font-size: 1.8rem;
             font-weight: 600;
-            padding: 20px 0;
-            transition: all 0.3s ease;
+            padding: 30px 0;
             border-bottom: 1px solid rgba(114, 203, 195, 0.1);
-            margin: 0;
-            background: transparent;
-            border: none;
-            border-radius: 0;
+            transition: all 0.3s ease;
         }
 
-        .mobile-menu a:last-child {
+        .mobile-menu-overlay a:last-child {
             border-bottom: none;
         }
 
-        .mobile-menu a:hover {
+        .mobile-menu-overlay a:hover {
             color: var(--downy);
-            background: rgba(114, 203, 195, 0.05);
             padding-left: 20px;
+            background: linear-gradient(90deg, rgba(114, 203, 195, 0.05), transparent);
         }
 
         /* Hero Section */
@@ -906,7 +901,7 @@
                 <span></span>
             </div>
         </nav>
-        <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-overlay" id="mobileMenu">
             <a href="#about" onclick="toggleMobileMenu()">About</a>
             <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
         </div>
@@ -1014,6 +1009,16 @@
             menu.classList.toggle('active');
             btn.classList.toggle('active');
         }
+
+        // Close mobile menu on scroll
+        window.addEventListener('scroll', () => {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                btn.classList.remove('active');
+            }
+        });
 
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
