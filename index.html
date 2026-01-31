@@ -845,20 +845,16 @@
             right: 16px;
         }
 
-        /* Adjust even items to move them further left */
+        /* Even items - move them to the left side */
         .timeline-item:nth-child(even) .timeline-content {
-            margin-left: calc(50% + 35px);
+            margin-left: calc(50% - 35px);
         }
 
         .timeline-item:nth-child(even) .timeline-date {
-            left: 4px;
+            left: 16px;
             right: auto;
-            width: 85px;
-        }
-
-        /* Timeline icon for even items */
-        .timeline-item:nth-child(even) .timeline-icon {
-            margin-left: 5px;
+            width: 100px;
+            top: 12px;
         }
 
         /* Timeline icon with enhanced glow */
@@ -932,19 +928,21 @@
                 font-size: 0.8rem;
             }
 
-            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(odd) .timeline-content {
+                margin-left: calc(50% + 30px);
+            }
+
             .timeline-item:nth-child(odd) .timeline-date {
-                left: 20px;
-                margin-left: 50px;
+                right: 16px;
             }
 
             .timeline-item:nth-child(even) .timeline-content {
-                margin-left: calc(50% + 35px) !important;
+                margin-left: calc(50% - 30px);
             }
 
             .timeline-item:nth-child(even) .timeline-date {
                 left: 15px;
-                margin-left: 50px;
+                width: 95px;
             }
 
             .timeline-icon {
@@ -990,19 +988,21 @@
                 font-size: 0.75rem;
             }
 
-            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(odd) .timeline-content {
+                margin-left: calc(50% + 25px);
+            }
+
             .timeline-item:nth-child(odd) .timeline-date {
-                left: 15px;
-                margin-left: 45px;
+                right: 12px;
             }
 
             .timeline-item:nth-child(even) .timeline-content {
-                margin-left: calc(50% + 32px) !important;
+                margin-left: calc(50% - 25px);
             }
 
             .timeline-item:nth-child(even) .timeline-date {
                 left: 12px;
-                margin-left: 45px;
+                width: 90px;
             }
 
             .timeline-icon {
