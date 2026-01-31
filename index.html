@@ -848,6 +848,13 @@
         .timeline-item:nth-child(even) .timeline-date {
             left: 16px;
             right: auto;
+            width: 90px;
+            top: 12px;
+        }
+
+        /* Add extra left margin for even items to prevent overlap with timeline axis */
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: calc(50% + 20px) !important;
         }
 
         /* Timeline icon with enhanced glow */
@@ -927,7 +934,10 @@
                 margin-left: 50px;
             }
 
-            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: calc(50% + 30px) !important;
+            }
+
             .timeline-item:nth-child(even) .timeline-date {
                 left: 20px;
                 margin-left: 50px;
@@ -982,7 +992,10 @@
                 margin-left: 45px;
             }
 
-            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: calc(50% + 25px) !important;
+            }
+
             .timeline-item:nth-child(even) .timeline-date {
                 left: 15px;
                 margin-left: 45px;
