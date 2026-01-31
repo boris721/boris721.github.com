@@ -722,6 +722,143 @@
             font-weight: 600;
         }
 
+        /* Timeline Section */
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        /* Vertical timeline line */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--downy), var(--smalt-blue));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            width: 100%;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Timeline box */
+        .timeline-content {
+            position: relative;
+            width: calc(50% - 20px);
+            background: rgba(22, 39, 69, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 2px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 35px 40px;
+            margin: 0 40px;
+            box-shadow: 0 12px 40px rgba(114, 203, 195, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            border-color: var(--downy);
+            box-shadow: 0 20px 50px rgba(114, 203, 195, 0.25);
+        }
+
+        /* Timeline date on the line */
+        .timeline-date {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: #ffffff;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            box-shadow: 0 8px 25px rgba(114, 203, 195, 0.4);
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: calc(50% + 20px);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-date {
+            left: auto;
+            right: 0;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            left: 0;
+        }
+
+        /* Timeline icon */
+        .timeline-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: rgba(114, 203, 195, 0.15);
+            padding: 20px;
+            border-radius: 16px;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-main);
+            background: linear-gradient(90deg, var(--text-main), var(--downy));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .timeline-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .timeline-details {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(114, 203, 195, 0.2);
+        }
+
+        .timeline-details p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .timeline-details ul {
+            margin-top: 15px;
+            padding-left: 25px;
+        }
+
+        .timeline-details li {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .timeline-details li::marker {
+            color: var(--downy);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .container {
@@ -936,7 +1073,7 @@
             <div class="logo">boris721</div>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="#milestones">Milestones</a>
+                <a href="#timeline">Timeline</a>
                 <a href="#contact">Contact</a>
             </div>
             <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
@@ -947,7 +1084,7 @@
         </nav>
         <div class="mobile-menu" id="mobileMenu">
             <a href="#about" onclick="toggleMobileMenu()">About</a>
-            <a href="#milestones" onclick="toggleMobileMenu()">Milestones</a>
+            <a href="#timeline" onclick="toggleMobileMenu()">Timeline</a>
             <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
         </div>
     </header>
@@ -1025,24 +1162,32 @@
         </div>
     </section>
 
-    <section class="section">
+    <section id="timeline" class="section">
         <div class="container">
-            <h2 class="section-title">Milestones <span>of Progress</span></h2>
-            <div class="skills-grid">
-                <div class="skill-card" style="border-color: rgba(114, 203, 195, 0.5);">
-                    <div class="skill-icon">🎉</div>
-                    <h3>Close the Loop</h3>
-                    <p>
-                        <strong style="color: var(--downy);">First Node.js Project with Functional Tests</strong><br><br>
-                        Successfully completed comprehensive test coverage for a full-stack Node.js application:
-                    </p>
-                    <ul style="color: var(--text-muted); line-height: 1.8; margin-top: 15px;">
-                        <li>✓ Created NoJS test projects</li>
-                        <li>✓ Built complete Node.js application</li>
-                        <li>✓ Implemented TypeScript projects</li>
-                        <li>✓ Fixed all test errors</li>
-                        <li>✓ Achieved 100% code coverage</li>
-                    </ul>
+            <h2 class="section-title">My <span>Timeline</span></h2>
+
+            <div class="timeline-container">
+                <!-- Timeline Item 1: Birth -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>🎂 My Birth</h3>
+                        <div class="date">1998</div>
+                        <p>Started my journey in this world</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2: First Node.js Project -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>🚀 First Node.js Project</h3>
+                        <div class="date">2025</div>
+                        <p>Created a full-stack Node.js application with functional tests and 100% code coverage, working alone from scratch.</p>
+                    </div>
+                </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
