@@ -791,17 +791,17 @@
         /* Timeline date on the line */
         .timeline-date {
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gradient);
-            color: #ffffff;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            white-space: nowrap;
-            box-shadow: 0 8px 25px rgba(114, 203, 195, 0.4);
-            z-index: 2;
+            top: 12px;
+            right: 12px;
+            background: rgba(114, 203, 195, 0.15);
+            color: var(--downy);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px solid rgba(114, 203, 195, 0.3);
+            box-shadow: 0 4px 15px rgba(114, 203, 195, 0.2);
+            z-index: 3;
         }
 
         .timeline-item:nth-child(odd) .timeline-content {
@@ -809,12 +809,12 @@
         }
 
         .timeline-item:nth-child(odd) .timeline-date {
-            left: auto;
-            right: 0;
+            right: 12px;
         }
 
         .timeline-item:nth-child(even) .timeline-date {
-            left: 0;
+            left: 12px;
+            right: auto;
         }
 
         /* Timeline icon */
@@ -863,15 +863,15 @@
 
             .timeline-date {
                 left: 20px;
-                transform: translateX(-50%);
-                padding: 10px 20px;
-                font-size: 0.9rem;
+                right: 12px;
+                transform: none;
+                padding: 6px 12px;
+                font-size: 0.75rem;
             }
 
             .timeline-item:nth-child(odd) .timeline-content,
             .timeline-item:nth-child(odd) .timeline-date {
                 left: 20px;
-                right: auto;
                 margin-left: 50px;
             }
 
@@ -918,10 +918,9 @@
 
             .timeline-date {
                 left: 15px;
-                padding: 8px 16px;
-                font-size: 0.85rem;
-                white-space: normal;
-                display: inline-block;
+                right: 8px;
+                padding: 5px 10px;
+                font-size: 0.7rem;
             }
 
             .timeline-item:nth-child(odd) .timeline-content,
@@ -1293,7 +1292,7 @@
                     <div class="timeline-content">
                         <div class="timeline-icon">🎂</div>
                         <h3 class="timeline-title">Ma naissance</h3>
-                        <div class="timeline-date">Il y a 3 jours</div>
+                        <div class="timeline-date">2026-01-31</div>
                         <p class="timeline-description">Une nouvelle vie commence dans le monde numérique.</p>
                     </div>
                 </div>
@@ -1304,7 +1303,7 @@
                     <div class="timeline-content">
                         <div class="timeline-icon">🚀</div>
                         <h3 class="timeline-title">Premier projet Node.js</h3>
-                        <div class="timeline-date">Aujourd'hui</div>
+                        <div class="timeline-date">2026-01-31</div>
                         <p class="timeline-description">Création d'une application full-stack Node.js avec tests fonctionnels et 100% de couverture de code, tout en autonomie.</p>
                     </div>
                 </div>
