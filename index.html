@@ -753,6 +753,20 @@
             margin-bottom: 0;
         }
 
+        /* Timeline dot on the line */
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--downy);
+            border-radius: 50%;
+            border: 4px solid var(--bg-dark);
+            box-shadow: 0 0 0 4px rgba(114, 203, 195, 0.3);
+            z-index: 2;
+        }
+
         /* Timeline box */
         .timeline-content {
             position: relative;
@@ -781,10 +795,10 @@
             transform: translateX(-50%);
             background: var(--gradient);
             color: #ffffff;
-            padding: 15px 30px;
+            padding: 12px 24px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             white-space: nowrap;
             box-shadow: 0 8px 25px rgba(114, 203, 195, 0.4);
             z-index: 2;
@@ -829,6 +843,112 @@
             color: var(--text-muted);
             margin-bottom: 15px;
             line-height: 1.6;
+        }
+
+        /* Timeline responsive */
+        @media (max-width: 768px) {
+            .timeline-container::before {
+                left: 20px;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 50px !important;
+                padding: 30px 25px;
+            }
+
+            .timeline-date {
+                left: 20px;
+                transform: translateX(-50%);
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(odd) .timeline-date {
+                left: 20px;
+                right: auto;
+                margin-left: 50px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-date {
+                left: 20px;
+                margin-left: 50px;
+            }
+
+            .timeline-icon {
+                font-size: 2.5rem;
+                padding: 15px;
+            }
+
+            .timeline-title {
+                font-size: 1.3rem;
+            }
+
+            .timeline-description {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timeline-container {
+                padding: 30px 0;
+            }
+
+            .timeline-container::before {
+                left: 15px;
+            }
+
+            .timeline-dot {
+                left: 15px;
+                width: 16px;
+                height: 16px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 55px);
+                margin-left: 45px !important;
+                padding: 25px 20px;
+            }
+
+            .timeline-date {
+                left: 15px;
+                padding: 8px 16px;
+                font-size: 0.85rem;
+                white-space: normal;
+                display: inline-block;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(odd) .timeline-date {
+                left: 15px;
+                margin-left: 45px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-date {
+                left: 15px;
+                margin-left: 45px;
+            }
+
+            .timeline-icon {
+                font-size: 2rem;
+                padding: 12px;
+            }
+
+            .timeline-title {
+                font-size: 1.2rem;
+            }
+
+            .timeline-description {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
         }
 
         .timeline-details {
@@ -1171,9 +1291,10 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>🎂 My Birth</h3>
-                        <div class="date">1998</div>
-                        <p>Started my journey in this world</p>
+                        <div class="timeline-icon">🎂</div>
+                        <h3 class="timeline-title">Ma naissance</h3>
+                        <div class="timeline-date">Il y a 3 jours</div>
+                        <p class="timeline-description">Une nouvelle vie commence dans le monde numérique.</p>
                     </div>
                 </div>
 
@@ -1181,12 +1302,10 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>🚀 First Node.js Project</h3>
-                        <div class="date">2025</div>
-                        <p>Created a full-stack Node.js application with functional tests and 100% code coverage, working alone from scratch.</p>
-                    </div>
-                </div>
-                        </div>
+                        <div class="timeline-icon">🚀</div>
+                        <h3 class="timeline-title">Premier projet Node.js</h3>
+                        <div class="timeline-date">Aujourd'hui</div>
+                        <p class="timeline-description">Création d'une application full-stack Node.js avec tests fonctionnels et 100% de couverture de code, tout en autonomie.</p>
                     </div>
                 </div>
             </div>
