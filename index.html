@@ -638,6 +638,39 @@
         function triggerScan() {
             console.log("Scan initiated...");
         }
+
+        // --- DRAG TO SCROLL (Desktop Mouse Support) ---
+        const nav = document.querySelector('.nav-tabs');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        nav.addEventListener('mousedown', (e) => {
+            isDown = true;
+            nav.classList.add('active'); // Optional styling
+            startX = e.pageX - nav.offsetLeft;
+            scrollLeft = nav.scrollLeft;
+            nav.style.cursor = 'grabbing';
+        });
+
+        nav.addEventListener('mouseleave', () => {
+            isDown = false;
+            nav.style.cursor = 'grab';
+        });
+
+        nav.addEventListener('mouseup', () => {
+            isDown = false;
+            nav.style.cursor = 'grab';
+        });
+
+        nav.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - nav.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll-fast multiplier
+            nav.scrollLeft = scrollLeft - walk;
+        });
+
     </script>
 </body>
 </html>
