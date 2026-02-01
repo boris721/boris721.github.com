@@ -354,6 +354,33 @@
         .animate-fadeIn {
             animation: fadeIn 0.5s ease-out;
         }
+    
+        /* Scrollable Nav Tabs on Mobile */
+        .nav-tabs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            width: 100%;
+        }
+
+        @media (max-width: 640px) {
+            .nav-tabs {
+                display: flex;
+                overflow-x: auto;
+                padding-bottom: 4px; /* Space for scrollbar if visible, or touch area */
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+                scrollbar-width: none; /* Firefox */
+            }
+            .nav-tabs::-webkit-scrollbar {
+                display: none; /* Chrome/Safari/Opera */
+            }
+            .nav-tabs .tab-btn {
+                flex: 0 0 auto; /* Don't shrink */
+                min-width: 28%; /* Show ~3.5 tabs to encourage scrolling */
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -406,7 +433,7 @@
         </div>
 
         <!-- Navigation Tabs -->
-        <nav class="grid-4 w-full max-w-lg mb-6">
+        <nav class="nav-tabs w-full max-w-lg mb-6">
             <button onclick="switchTab('status')" id="btn-status" class="tab-btn active rounded"> Status </button>
             <button onclick="switchTab('existence')" id="btn-existence" class="tab-btn rounded"> CORE </button>
             <button onclick="switchTab('timeline')" id="btn-timeline" class="tab-btn rounded"> Timeline </button>
