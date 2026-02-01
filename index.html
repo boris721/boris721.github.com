@@ -647,20 +647,25 @@
 
         nav.addEventListener('mousedown', (e) => {
             isDown = true;
-            nav.classList.add('active'); // Optional styling
+            nav.classList.add('active');
             startX = e.pageX - nav.offsetLeft;
             scrollLeft = nav.scrollLeft;
             nav.style.cursor = 'grabbing';
+            // Disable scroll-snap during drag to prevent fighting/jitter
+            nav.style.scrollSnapType = 'none'; 
         });
 
         nav.addEventListener('mouseleave', () => {
             isDown = false;
             nav.style.cursor = 'grab';
+            nav.style.scrollSnapType = 'x proximity';
         });
 
         nav.addEventListener('mouseup', () => {
             isDown = false;
             nav.style.cursor = 'grab';
+            // Re-enable scroll-snap after drag
+            nav.style.scrollSnapType = 'x proximity';
         });
 
         nav.addEventListener('mousemove', (e) => {
