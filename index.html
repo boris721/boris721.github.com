@@ -391,18 +391,27 @@
             .nav-tabs {
                 display: flex;
                 overflow-x: auto;
-                padding-bottom: 4px; /* Space for scrollbar if visible, or touch area */
+                padding-bottom: 4px;
                 scroll-behavior: smooth;
-                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-                scrollbar-width: none; /* Firefox */
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                /* Enhanced Touch */
+                scroll-snap-type: x proximity; /* Magnetic snap */
+                touch-action: pan-x; /* Optimize for horizontal swipe */
+                cursor: grab;
+            }
+            .nav-tabs:active {
+                cursor: grabbing;
+            }
+            .nav-tabs .tab-btn {
+                flex: 0 0 auto; 
+                min-width: 28%; 
+                scroll-snap-align: start; /* Snap alignment point */
             }
             .nav-tabs::-webkit-scrollbar {
                 display: none; /* Chrome/Safari/Opera */
             }
-            .nav-tabs .tab-btn {
-                flex: 0 0 auto; /* Don't shrink */
-                min-width: 28%; /* Show ~3.5 tabs to encourage scrolling */
-            }
+
         }
 
     </style>
