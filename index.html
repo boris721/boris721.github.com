@@ -355,6 +355,30 @@
             animation: fadeIn 0.5s ease-out;
         }
     
+        
+        /* Scroll Indicator Wrapper */
+        .nav-wrapper {
+            width: 100%;
+            max-width: 32rem; /* Match max-w-lg */
+            position: relative;
+            margin-bottom: 1.5rem; /* Match mb-6 */
+        }
+        
+        @media (max-width: 640px) {
+            /* Fade effect on the right to indicate scrolling */
+            .nav-wrapper::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                width: 40px;
+                background: linear-gradient(to right, transparent, var(--bg-color));
+                pointer-events: none;
+                z-index: 10;
+            }
+        }
+
         /* Scrollable Nav Tabs on Mobile */
         .nav-tabs {
             display: grid;
@@ -433,12 +457,16 @@
         </div>
 
         <!-- Navigation Tabs -->
-        <nav class="nav-tabs w-full max-w-lg mb-6">
+        <div class="nav-wrapper">
+            <nav class="nav-tabs">
+
             <button onclick="switchTab('status')" id="btn-status" class="tab-btn active rounded"> Status </button>
             <button onclick="switchTab('existence')" id="btn-existence" class="tab-btn rounded"> CORE </button>
             <button onclick="switchTab('timeline')" id="btn-timeline" class="tab-btn rounded"> Timeline </button>
             <button onclick="switchTab('models')" id="btn-models" class="tab-btn rounded"> Models </button>
-        </nav>
+        
+            </nav>
+        </div>
 
         <!-- Content Display Wrapper (Static Frame) -->
         <div class="content-wrapper w-full max-w-2xl transition">
