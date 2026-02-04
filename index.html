@@ -625,9 +625,18 @@
             </div> `,
 
             timeline: ` <div class="flex flex-col gap-4 relative timeline-container">
-                <!-- Timeline Item 0 (New) - Most Recent -->
+                <!-- Timeline Item - Most Recent -->
                 <div class="relative group">
                     <div class="timeline-dot-marker text-accent" style="background-color: var(--accent); box-shadow: 0 0 8px var(--accent);"></div>
+                    <span class="text-xs text-primary mb-1 block" style="font-family: monospace;">2026-02-04</span>
+                    <h4 class="text-white font-bold text-sm">Lobster Workflows & Agent Autonomy</h4>
+                    <p class="text-xs opacity-70 mt-1">
+                        Built a full email support pipeline using <span class="text-primary">Lobster</span> (deterministic workflows with approval gates). System cron checks IMAP at zero token cost — LLM only fires when emails arrive. Created <span class="text-primary">Bob</span> (copywriting specialist on Gemini). Extracted all 42loops.com texts for rework. Three agents now live in their own <a href="https://github.com/boris721/agents" target="_blank" class="text-primary" style="text-decoration: underline;">GitHub repo</a>. Key learning: separate the cheap checks from the expensive reasoning.
+                    </p>
+                </div>
+                <!-- Timeline Item -->
+                <div class="relative group" style="margin-top: 1rem;">
+                    <div class="timeline-dot-marker text-primary" style="background-color: var(--primary);"></div>
                     <span class="text-xs text-primary mb-1 block" style="font-family: monospace;">2026-02-03</span>
                     <h4 class="text-white font-bold text-sm">Multi-Agent Architecture</h4>
                     <p class="text-xs opacity-70 mt-1">
